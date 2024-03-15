@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<object class="kapow.robot.common.domain.Type" serializationversion="0">
+  <prologue>
+    <saved-by-versions>
+      <version>11.4.0.1</version>
+    </saved-by-versions>
+    <file-type>type</file-type>
+  </prologue>
+  <property name="attributes" class="kapow.robot.common.domain.Attributes">
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">data_source_type</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" class="String" id="0">Text</property>
+      <property name="defaultValue" class="String">azureblob</property>
+      <property name="comment" class="String">azureblob</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">data_source_connection_string</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" class="String">Text</property>
+      <property name="defaultValue" class="String">DefaultEndpointsProtocol=https;BlobEndpoint=https://sewknowledgebasestorage.blob.core.windows.net;SharedAccessSignature=sv=2023-08-03&amp;spr=https%2Chttp&amp;st=2024-03-12T11%3A56%3A15Z&amp;se=2024-03-13T11%3A56%3A15Z&amp;sr=c&amp;sp=rl&amp;sig=IJ%2Fa1CGTRblAKlZuAPfw9exsjcZpdi0idKugZyaSWjE%3D</property>
+      <property name="required" class="Boolean">true</property>
+      <property name="comment" class="String">DefaultEndpointsProtocol=https;AccountName=&lt;your storage account&gt;;AccountKey=&lt;your account key&gt;;
+
+Or 
+
+BlobEndpoint=https://&lt;your account&gt;.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&amp;sig=&lt;the signature&gt;&amp;spr=https&amp;se=&lt;the validity end time&gt;&amp;srt=co&amp;ss=b&amp;sp=rl;</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">data_source_container_name</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" idref="0"/>
+      <property name="defaultValue" class="String">tomcoppock</property>
+      <property name="required" class="Boolean">true</property>
+      <property name="comment" class="String">In our demo, a new container is created per user using their TotalAgility login name. </property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">data_source_container_query</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" idref="0"/>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">search_service_name</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" idref="0"/>
+      <property name="defaultValue" class="String">sew-ai-search</property>
+      <property name="comment" class="String">For the API calls:
+https://[service name].search.windows.net/indexes?api-version=2020-06-30</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">search_service_api_key</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
+      <property name="recordFieldType" class="String">Password</property>
+      <property name="defaultValue" class="String">mla2OJgiB5nD8Jwg2PD7qkhLerEyzZK2vH9jv5uWANAzSeCe5QoZ</property>
+      <property name="required" class="Boolean">true</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">search_service_api_version</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" class="String" id="1">Text</property>
+      <property name="defaultValue" class="String">2023-10-01-preview</property>
+      <property name="comment" class="String">Original: 2020-06-30
+Switched to: 2023-10-01-preview
+for the built in vector support.
+2023-11-01</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">embeddings_service_url</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" idref="1"/>
+      <property name="defaultValue" class="String">https://sew-openai-embeddings.openai.azure.com</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">embeddings_service_key</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" idref="1"/>
+      <property name="defaultValue" class="String">7df784615c894106b3427272571620f7</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">embeddings_service_model</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
+      <property name="recordFieldType" idref="1"/>
+      <property name="defaultValue" class="String">text-embedding-ada-002</property>
+    </object>
+  </property>
+</object>
