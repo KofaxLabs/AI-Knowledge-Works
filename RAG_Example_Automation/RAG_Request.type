@@ -80,6 +80,7 @@ for the built in vector support.
       <property name="name" class="String">prompt_system</property>
       <property name="type" class="kapow.robot.plugin.common.domain.TextAttributeType"/>
       <property name="recordFieldType" idref="3"/>
+      <property name="defaultValue" class="String">Use the only the information in the provided articles, delimited by ###ARTICLE_START### AND ###ARTICLE_STOP###, to answer the question or respond to the prompt. Keep to the token limit in all responses, do not truncate sentences. If relevant content cannot be found in the articles provided, do not attempt to answer using general knowledge, instead reply "The question is outside of the scope of this ChatBot's training - I was unable to find a suitable answer."</property>
     </object>
   </property>
 </object>
