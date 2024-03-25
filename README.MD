@@ -18,3 +18,6 @@ The Automation Bots are intended to complement and extent TotalAgility workflows
  - Tungsten Automation RPA (on-premise or RPA Cloud)
  - Azure Subscription
  - Access to OpenAI models on Azure
+
+
+New stuff
