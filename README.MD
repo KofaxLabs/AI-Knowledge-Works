@@ -20,4 +20,4 @@ The Automation Bots are intended to complement and extent TotalAgility workflows
  - Access to OpenAI models on Azure
 
 
-New stuff
+New stuff2
