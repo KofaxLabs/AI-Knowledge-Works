@@ -3,6 +3,7 @@ The **AI Knowledge Works** project provides a suite of template  Automation Bots
 
 The Automation Bots are intended to complement and extent TotalAgility workflows, bringing the full power of generative AI to both ChatBot style interactions with humans, as well as providing a for applied use of LLMs and Generative AI as part of enterprise Intelligent Automation projects.
 
+
 ## Included Template & Examples
  
  - Embedding - vector embeddings using Azure hosted Open AI models
@@ -25,6 +26,7 @@ The following are required and/or recommended technology components to run the v
     - Azure Storage account (optional, required if using the _pull_ pattern)
     - Azure Functional (optional, required if using [Azure Blob Storage Connector for TotalAgility & RPA](https://marketplace.kofax.com/details/azure-blob-storage-connector-for-totalagility-rpa))
 
+
 ## Project Structure
 The project includes _Basic Engine Robot_ Automation Bot templates for:
 
@@ -36,27 +38,44 @@ The project includes _Basic Engine Robot_ Automation Bot templates for:
  - **Types**: Library of types (data models) used in the different examples. 
  - **Vector_Embedding_Example**: Creates a vector embedding representation of a given prompt or text block by calling an OpenAI model. 
 
-### Environment Variables & Security
+
+## Environment Variables & Security
 The examples in this project make use a the _Types/AIKnowledge_Works_Env.type_ data model to pass in Azure account, endpoint and key information at the point of robot execution. In a production environment, this approach should be replaced to make use of the built in password store, 3rd party secure secret storage (e.g. Azure Key Vault), or dynamically populating the _AIKnowledge_Works_Env.type_ using secure variables from TotalAgility (taking appropriate steps to ensure these are not logged or stored unencrypted at any point).
 
+
 ## Appendices & Further Reading
-
-### Azure Command Lines to Create Resources
-The following command line examples can be updated to create the Azure resources needed for this project. To run these commands, first install [Azure Command-Line Interface](https://learn.microsoft.com/en-us/cli/azure/), then run: 
-`az login`
-
-**Azure Resource Group**:
- - 
-
-**Azure Storage Account**:
-The 
-```az group create --name YOUR_RESOURCE_GROUP_NAME --location northeurope --tags "CustomTag=Tag Value" "Description=Resource group for use with AI Knowledge Works example automation bots."```
-
-3. Create a storage account to hold the function app code:
-az storage account create --name YOUR_STORAGE_ACCOUNT_TO_STORE_THE_FUNCTION_CODE --location northeurope --resource-group YOUR_RESOURCE_GROUP_NAME --sku Standard_LRS --allow-blob-public-access false --tags "CustomTag=Tag Value" "Description=Azure function to proxy access to Azure Blob Storage, to simplify authentication & checksum calculation."
- - 
-
+The following links and resources provide additional guidance for using this project. 
 
 ### AI Search hotels-sample
 See: https://learn.microsoft.com/en-us/azure/search/search-get-started-portal
+
+### Azure Command Lines to Create Resources
+The following command line examples can be updated to create the Azure resources needed for this project. To run these commands, first install [Azure Command-Line Interface](https://learn.microsoft.com/en-us/cli/azure/), then run: 
+
+```az login```
+
+**Azure Resource Group**:
+The following Command can be used to create a resource group for use with AI Search:
+
+```az group create --name YOUR_RESOURCE_GROUP_NAME --location northeurope --tags "CustomTag=Tag Value" "Description=Resource Group for use with AI Knowledge Works example automation bots."```
+
+**Azure AI Search**:
+TODO
+
+**Azure Open AI**:
+TODO
+
+**Azure Multi-Service Account**:
+TODO
+
+**Azure Storage Account**:
+The following Command can be used to create a storage account:
+
+```az storage account create --name YOUR_STORAGE_ACCOUNT_NAME --location northeurope --resource-group YOUR_RESOURCE_GROUP_NAME --sku Standard_LRS --allow-blob-public-access false --tags "CustomTag=Tag Value" "Description=Azure function to proxy access to Azure Blob Storage, to simplify authentication & checksum calculation."```
+
+The following Command can be used to create a storage account _container_ for use in the _pull_ pattern:
+
+```TODO```
+
+
 
