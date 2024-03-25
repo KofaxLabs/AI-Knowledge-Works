@@ -43,7 +43,7 @@ The examples in this project make use a the _Types/AIKnowledge_Works_Env.type_ d
 
 ### Azure Command Lines to Create Resources
 The following command line examples can be updated to create the Azure resources needed for this project. To run these commands, first install [Azure Command-Line Interface](https://learn.microsoft.com/en-us/cli/azure/), then run: 
-```az login```
+`az login`
 
 **Azure Resource Group**:
  - 
