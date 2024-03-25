@@ -1,7 +1,7 @@
 # AI Knowledge Works
-The **AI Knowledge Works** project provides a suite of template  Automation Bots, implemented in Tungsten RPA, to create, update and maintain an Azure AI Search knowledge base, for use in a Retrieval Augmented Generation pattern in Intelligent Automation and Enterprise ChatBot scenarios.
+The **AI Knowledge Works** project provides a suite of template and example Automation Bots, implemented in [Tungsten RPA](https://www.tungstenautomation.com/products/rpa), to create, update and maintain an [Azure AI Search](https://azure.microsoft.com/en-gb/products/ai-services/ai-search) knowledge base, for use in a Retrieval Augmented Generation pattern in Intelligent Automation and Enterprise ChatBot scenarios.
 
-The Automation Bots are intended to complement and extent TotalAgility workflows, bringing the full power of generative AI to both ChatBot style interactions with humans, as well as providing a for applied use of LLMs and Generative AI as part of enterprise Intelligent Automation projects.
+The Automation Bots are intended to complement and extent TotalAgility workflows, bringing the full power of Generative AI to both ChatBot style interactions with humans, as well as providing a for applied use of LLMs and Generative AI as part of enterprise Intelligent Automation projects.
 
 
 ## Included Template & Examples
@@ -40,7 +40,7 @@ The project includes _Basic Engine Robot_ Automation Bot templates for:
 
 
 ## Environment Variables & Security
-The examples in this project make use a the _Types/AIKnowledge_Works_Env.type_ data model to pass in Azure account, endpoint and key information at the point of robot execution. In a production environment, this approach should be replaced to make use of the built in password store, 3rd party secure secret storage (e.g. Azure Key Vault), or dynamically populating the _AIKnowledge_Works_Env.type_ using secure variables from TotalAgility (taking appropriate steps to ensure these are not logged or stored unencrypted at any point).
+The examples in this project make use a the _Types/AIKnowledge_Works_Env.type_ data model to pass in Azure account, endpoint and key information at the point of robot execution. In a production environment, this approach should be replaced to make use of the built in RPA password store, 3rd party secure secret storage (e.g. Azure Key Vault), or dynamically populating the _AIKnowledge_Works_Env.type_ using secure variables from TotalAgility (taking appropriate steps to ensure these are not logged or stored unencrypted at any point).
 
 
 ## Appendices & Further Reading
@@ -52,12 +52,16 @@ See: https://learn.microsoft.com/en-us/azure/search/search-get-started-portal
 ### Azure Command Lines to Create Resources
 The following command line examples can be updated to create the Azure resources needed for this project. To run these commands, first install [Azure Command-Line Interface](https://learn.microsoft.com/en-us/cli/azure/), then run: 
 
-```az login```
+```
+az login
+```
 
 **Azure Resource Group**:
 The following Command can be used to create a resource group for use with AI Search:
 
-```az group create --name YOUR_RESOURCE_GROUP_NAME --location northeurope --tags "CustomTag=Tag Value" "Description=Resource Group for use with AI Knowledge Works example automation bots."```
+```
+az group create --name YOUR_RESOURCE_GROUP_NAME --location northeurope --tags "CustomTag=Tag Value" "Description=Resource Group for use with AI Knowledge Works automation bots."
+```
 
 **Azure AI Search**:
 TODO
@@ -71,11 +75,13 @@ TODO
 **Azure Storage Account**:
 The following Command can be used to create a storage account:
 
-```az storage account create --name YOUR_STORAGE_ACCOUNT_NAME --location northeurope --resource-group YOUR_RESOURCE_GROUP_NAME --sku Standard_LRS --allow-blob-public-access false --tags "CustomTag=Tag Value" "Description=Azure function to proxy access to Azure Blob Storage, to simplify authentication & checksum calculation."```
+```
+az storage account create --name YOUR_STORAGE_ACCOUNT_NAME --location northeurope --resource-group YOUR_RESOURCE_GROUP_NAME --sku Standard_LRS --allow-blob-public-access false --tags "CustomTag=Tag Value" "Description=Azure Storage Account for use with AI Knowledge Works automation bots."
+```
 
 The following Command can be used to create a storage account _container_ for use in the _pull_ pattern:
 
-```TODO```
+`TODO`
 
 
 
