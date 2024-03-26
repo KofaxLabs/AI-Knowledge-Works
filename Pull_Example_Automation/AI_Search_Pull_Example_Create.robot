@@ -1078,26 +1078,6 @@ To create the data source, Connection String must be in one of the following for
                 }
             ]
         },
-        {
-            \"description\": \"Extract embeddings using Azure Open AI\",
-            \"@odata.type\": \"Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill\",
-            \"context\": \"/document\",
-            \"resourceUri\": \""+ create_index_request.embeddings_service_url + "\",
-            \"deploymentId\": \"text-embedding-ada-002\",
-            \"apiKey\": \"" + create_index_request.embeddings_service_key + "\",
-            \"inputs\": [
-                {
-                    \"name\": \"text\",
-                    \"source\": \"/document/classification\"
-                }
-            ],
-            \"outputs\": [
-                {
-                    \"name\": \"embedding\",
-                    \"targetName\": \"classificationEmbeddings\"
-                }
-            ]
-        },  
   {  
   \"description\": \"Extract embeddings using Azure Open AI\",  
   \"@odata.type\": \"Microsoft.Skills.Text.AzureOpenAIEmbeddingSkill\", 
@@ -1128,6 +1108,10 @@ To create the data source, Connection String must be in one of the following for
           {
             \"name\": \"classification\",
             \"source\": \"/document/classification\"
+          },
+          {
+            \"name\": \"language\",
+            \"source\": \"/document/language\"
           },
           {
             \"name\": \"page_content_vector\",
