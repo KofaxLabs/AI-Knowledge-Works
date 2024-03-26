@@ -562,22 +562,6 @@ To create the data source, Connection String must be in one of the following for
         \"searchable\": true,
         \"filterable\": true,
         \"sortable\": true
-    },   
-    {
-        \"name\": \"classificationEmbeddings\",
-        \"type\": \"Collection(Edm.Single)\",
-      \"searchable\": true,
-      \"filterable\": false,
-      \"retrievable\": true,
-      \"sortable\": false,
-      \"facetable\": false,
-      \"key\": false,
-      \"indexAnalyzer\": null,
-      \"searchAnalyzer\": null,
-      \"analyzer\": null,
-      \"normalizer\": null,
-      \"dimensions\": 1536,
-       \"vectorSearchProfile\": \"my_open_ai_profile\"
     }
 ],
     \"corsOptions\": {
@@ -803,6 +787,23 @@ To create the data source, Connection String must be in one of the following for
       \"name\": \"classification\",
       \"type\": \"Edm.String\",
       \"searchable\": true,
+      \"filterable\": true,
+      \"retrievable\": true,
+      \"sortable\": true,
+      \"facetable\": false,
+      \"key\": false,
+      \"indexAnalyzer\": null,
+      \"searchAnalyzer\": null,
+      \"analyzer\": \"standard.lucene\",
+      \"normalizer\": null,
+      \"dimensions\": null,
+      \"vectorSearchProfile\": null,
+      \"synonymMaps\": []
+    },
+    {
+      \"name\": \"language\",
+      \"type\": \"Edm.String\",
+      \"searchable\": false,
       \"filterable\": true,
       \"retrievable\": true,
       \"sortable\": true,
@@ -1364,8 +1365,8 @@ To create the data source, Connection String must be in one of the following for
         	\"targetFieldName\": \"language\"
         },
         {
-          \"sourceFieldName\" : \"/document/classificationEmbeddings\", 
-          \"targetFieldName\" : \"classificationEmbeddings\"
+          \"sourceFieldName\" : \"/document/language\", 
+          \"targetFieldName\" : \"language\"
         }
     ]
 }"</property>
