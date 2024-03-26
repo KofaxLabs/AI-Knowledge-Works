@@ -51,7 +51,7 @@
       </property>
     </object>
     <object class="Variable" serializationversion="1">
-      <property name="name" class="String">vector_embedding_data</property>
+      <property name="name" class="String" id="1">vector_embedding_data</property>
       <property name="global" class="Boolean">true</property>
       <property name="initialAssignment" class="InitialVariableAssignment">
         <property name="type" class="TypeReference" serializationversion="0">
@@ -84,16 +84,16 @@
   </property>
   <property name="avoidExternalReExecution" class="Boolean">false</property>
   <property name="transitionGraph" class="Body">
-    <blockBeginStep class="BlockBeginStep" id="1"/>
+    <blockBeginStep class="BlockBeginStep" id="2"/>
     <steps class="ArrayList">
-      <object class="Group" id="2">
+      <object class="Group" id="3">
         <name class="String">Set Robot Env Variables</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="3"/>
+        <blockBeginStep class="BlockBeginStep" id="4"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="4">
+          <object class="Transition" serializationversion="3" id="5">
             <property name="name" class="String">Assign Robot Execution Id</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -103,7 +103,7 @@
                 <property name="name" class="String">vector_embeddings_response.robot_execution_id</property>
               </property>
             </property>
-            <property name="elementFinders" class="ElementFinders" id="5"/>
+            <property name="elementFinders" class="ElementFinders" id="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
             <property name="comment">
               <null/>
@@ -111,7 +111,7 @@
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="6">
+          <object class="Transition" serializationversion="3" id="7">
             <property name="name" class="String">Assign Robot Name</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -121,7 +121,7 @@
                 <property name="name" class="String">vector_embeddings_response.robot_name</property>
               </property>
             </property>
-            <property name="elementFinders" idref="5"/>
+            <property name="elementFinders" idref="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
             <property name="comment">
               <null/>
@@ -130,37 +130,37 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="7"/>
+        <blockEndStep class="BlockEndStep" id="8"/>
         <edges class="ArrayList">
           <object class="TransitionEdge">
-            <from idref="3"/>
-            <to idref="4"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
             <from idref="4"/>
-            <to idref="6"/>
+            <to idref="5"/>
             <name/>
             <comment/>
           </object>
           <object class="TransitionEdge">
-            <from idref="6"/>
+            <from idref="5"/>
             <to idref="7"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="7"/>
+            <to idref="8"/>
             <name/>
             <comment/>
           </object>
         </edges>
       </object>
-      <object class="Try" id="8"/>
-      <object class="Group" id="9">
+      <object class="Try" id="9"/>
+      <object class="Group" id="10">
         <name class="String">Vectorise Prompt</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="10"/>
+        <blockBeginStep class="BlockBeginStep" id="11"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="11">
+          <object class="Transition" serializationversion="3" id="12">
             <property name="name" class="String">Assign Embeddings Request</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -173,7 +173,7 @@
                 <property name="name" class="String">vector_embedding_data.Embeddings_Request</property>
               </property>
             </property>
-            <property name="elementFinders" idref="5"/>
+            <property name="elementFinders" idref="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
             <property name="comment">
               <null/>
@@ -181,7 +181,7 @@
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="12">
+          <object class="Transition" serializationversion="3" id="13">
             <property name="name" class="String">Call REST Web Service</property>
             <property name="stepAction" class="CallRESTWebService2" serializationversion="1">
               <property name="urlProvider" class="Expression" serializationversion="1">
@@ -227,26 +227,7 @@
                 </property>
               </property>
             </property>
-            <property name="elementFinders" idref="5"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
-              <property name="reportingViaAPI" class="Boolean">false</property>
-              <property name="reportingViaLog" class="Boolean">false</property>
-              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
-            </property>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" class="Boolean">true</property>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="13">
-            <property name="name" class="String">Open Embeddings Response</property>
-            <property name="stepAction" class="OpenVariable">
-              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">vector_embedding_data.Embeddings_Response</property>
-              </property>
-            </property>
-            <property name="elementFinders" idref="5"/>
+            <property name="elementFinders" idref="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0">
               <property name="reportingViaAPI" class="Boolean">false</property>
               <property name="reportingViaLog" class="Boolean">false</property>
@@ -259,6 +240,25 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
           <object class="Transition" serializationversion="3" id="14">
+            <property name="name" class="String">Open Embeddings Response</property>
+            <property name="stepAction" class="OpenVariable">
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">vector_embedding_data.Embeddings_Response</property>
+              </property>
+            </property>
+            <property name="elementFinders" idref="6"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" class="Boolean">true</property>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="15">
             <property name="name" class="String">Extract Vector Embedding</property>
             <property name="stepAction" class="ExtractJSON2">
               <property name="dataConverters" class="DataConverters">
@@ -283,14 +283,8 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="15"/>
+        <blockEndStep class="BlockEndStep" id="16"/>
         <edges class="ArrayList">
-          <object class="TransitionEdge">
-            <from idref="10"/>
-            <to idref="11"/>
-            <name/>
-            <comment/>
-          </object>
           <object class="TransitionEdge">
             <from idref="11"/>
             <to idref="12"/>
@@ -315,16 +309,22 @@
             <name/>
             <comment/>
           </object>
+          <object class="TransitionEdge">
+            <from idref="15"/>
+            <to idref="16"/>
+            <name/>
+            <comment/>
+          </object>
         </edges>
       </object>
-      <object class="Group" id="16">
+      <object class="Group" id="17">
         <name class="String">Return Response</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="17"/>
+        <blockBeginStep class="BlockBeginStep" id="18"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="18">
+          <object class="Transition" serializationversion="3" id="19">
             <property name="name" class="String">Return Value</property>
             <property name="stepAction" class="ReturnVariable" serializationversion="1">
               <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
@@ -339,25 +339,48 @@
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-        </steps>
-        <blockEndStep class="BlockEndStep" id="19"/>
-        <edges class="ArrayList">
-          <object class="TransitionEdge">
-            <from idref="17"/>
-            <to idref="18"/>
-            <name/>
-            <comment/>
+          <object class="Transition" serializationversion="3" id="20">
+            <property name="name" class="String">Return Debug</property>
+            <property name="stepAction" class="ReturnVariable" serializationversion="1">
+              <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
+                <property name="name" idref="1"/>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" class="Boolean">false</property>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element class="String">name</element>
+            </property>
           </object>
+        </steps>
+        <blockEndStep class="BlockEndStep" id="21"/>
+        <edges class="ArrayList">
           <object class="TransitionEdge">
             <from idref="18"/>
             <to idref="19"/>
             <name/>
             <comment/>
           </object>
+          <object class="TransitionEdge">
+            <from idref="19"/>
+            <to idref="20"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="20"/>
+            <to idref="21"/>
+            <name/>
+            <comment/>
+          </object>
         </edges>
       </object>
-      <object class="End" id="20"/>
-      <object class="Transition" serializationversion="3" id="21">
+      <object class="End" id="22"/>
+      <object class="Transition" serializationversion="3" id="23">
         <property name="name" class="String">Assign Robot Errors</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
@@ -367,7 +390,7 @@
             <property name="name" class="String">vector_embeddings_response.robot_errors</property>
           </property>
         </property>
-        <property name="elementFinders" idref="5"/>
+        <property name="elementFinders" idref="6"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
@@ -379,44 +402,44 @@
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
       <object class="TransitionEdge">
-        <from idref="1"/>
-        <to idref="2"/>
-        <name/>
-        <comment/>
-      </object>
-      <object class="TransitionEdge">
         <from idref="2"/>
-        <to idref="8"/>
+        <to idref="3"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="8"/>
+        <from idref="3"/>
         <to idref="9"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="8"/>
-        <to idref="21"/>
+        <from idref="9"/>
+        <to idref="10"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
         <from idref="9"/>
-        <to idref="16"/>
+        <to idref="23"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="16"/>
-        <to idref="20"/>
+        <from idref="10"/>
+        <to idref="17"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="21"/>
-        <to idref="16"/>
+        <from idref="17"/>
+        <to idref="22"/>
+        <name/>
+        <comment/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="23"/>
+        <to idref="17"/>
         <name/>
         <comment/>
       </object>

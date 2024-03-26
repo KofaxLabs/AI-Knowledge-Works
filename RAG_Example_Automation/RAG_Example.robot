@@ -494,7 +494,7 @@
       </object>
       <object class="BranchPoint" id="26"/>
       <object class="Transition" serializationversion="3" id="27">
-        <property name="name" class="String">For Each Item</property>
+        <property name="name" class="String">For Each Search Result</property>
         <property name="stepAction" class="ForEachItem"/>
         <property name="elementFinders" class="ElementFinders">
           <object class="kapow.robot.robomaker.state.document.elementfinder.json.JSONElementFinder">
@@ -512,10 +512,12 @@
           <null/>
         </property>
         <property name="enabled" class="Boolean">true</property>
-        <property name="changedProperties" class="java.util.HashSet"/>
+        <property name="changedProperties" class="java.util.HashSet">
+          <element class="String">name</element>
+        </property>
       </object>
       <object class="Group" id="28">
-        <name class="String">Combine Search Results</name>
+        <name class="String">Append Search Result</name>
         <comment>
           <null/>
         </comment>

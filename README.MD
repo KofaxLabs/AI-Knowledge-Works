@@ -34,6 +34,15 @@ The following are required and/or recommended technology components to run the v
 The examples in this project make use a the _Types/AIKnowledge_Works_Env.type_ data model to pass in Azure account, endpoint and key information at the point of robot execution. In a production environment, this approach should be replaced to make use of the built in RPA password store, 3rd party secure secret storage (e.g. Azure Key Vault), or dynamically populating the _AIKnowledge_Works_Env.type_ using secure variables from TotalAgility (taking appropriate steps to ensure these are not logged or stored unencrypted at any point).
 
 
+## Automation Bot Design
+Each robot includes 3 types:
+ - XXX_Request: includes the parameters needed to trigger the robot, including environment data
+ - XXX_Response: the output/results from the automation bot
+ - XXX_Data: structure to hold data used in the execution of the robot
+
+To enable remote debugging, in the final step of the robots, "enable" the "Return Debug" step in the "Return Response" group:
+![Return Debug](Remote_Debugging.png)
+
 ## Appendices & Further Reading
 The following links and resources provide additional guidance for using this project. 
 

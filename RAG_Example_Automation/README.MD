@@ -13,7 +13,10 @@ Example "system" prompt for the use of the search results:
 Use the only the information in the provided articles, delimited by ###ARTICLE_START### AND ###ARTICLE_STOP###, to answer the question or respond to the prompt. Keep to the token limit in all responses, do not truncate sentences. If relevant content cannot be found in the articles provided, do not attempt to answer using general knowledge, instead reply "The question is outside of the scope of this ChatBot's training - I was unable to find a suitable answer."
 ```
 
+The RAG Automation uses the following steps:
+![RAG_Example_Automation](RAG_Example_Automation.png)
+
 **Note** to be sure to escape / json escape any text data passed as prompts.
 
-**Note** depending on the speed of the search index and the chat completions deployment, this task can take some time to complete, often 30-60seconds. If your RPA environment is deployed behind a proxy/gateway service like Azure Front Door be sure to increase the timeout to suitable level to account for these delays.
+**Note** depending on the speed of the search index and the chat completions deployment, this task can take some time to complete, typically 15-20seconds, but it could be 30-60seconds for complex prompts with large volumes of data. If your RPA environment is deployed behind a proxy/gateway service like Azure Front Door be sure to increase the timeout to suitable level to account for these delays.
 
