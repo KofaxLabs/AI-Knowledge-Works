@@ -9,7 +9,9 @@ This automation bot illustrates how to implement a Retrieval Augmented Generatio
 
 Example "system" prompt for the use of the search results:
 
-```Use the only the information in the provided articles, delimited by ###ARTICLE_START### AND ###ARTICLE_STOP###, to answer the question or respond to the prompt. Keep to the token limit in all responses, do not truncate sentences. If relevant content cannot be found in the articles provided, do not attempt to answer using general knowledge, instead reply "The question is outside of the scope of this ChatBot's training - I was unable to find a suitable answer."```
+```
+Use the only the information in the provided articles, delimited by ###ARTICLE_START### AND ###ARTICLE_STOP###, to answer the question or respond to the prompt. Keep to the token limit in all responses, do not truncate sentences. If relevant content cannot be found in the articles provided, do not attempt to answer using general knowledge, instead reply "The question is outside of the scope of this ChatBot's training - I was unable to find a suitable answer."
+```
 
 **Note** to be sure to escape / json escape any text data passed as prompts.
 

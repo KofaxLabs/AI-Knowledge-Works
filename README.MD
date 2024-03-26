@@ -3,6 +3,8 @@ The **AI Knowledge Works** project provides a suite of template and example Auto
 
 The Automation Bots are intended to complement and extent TotalAgility workflows, bringing the full power of Generative AI to both ChatBot style interactions with humans, as well as providing a for applied use of LLMs and Generative AI as part of enterprise Intelligent Automation projects.
 
+The Automation Bots have been implemented in Tungsten Automation RPA version: 11.4.0.1 271
+
 ## Project Structure, Template & Examples
 The project includes _Basic Engine Robot_ Automation Bot templates for:
 

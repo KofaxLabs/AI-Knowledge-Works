@@ -33,7 +33,7 @@
   </prologue>
   <property name="variables" class="Variables">
     <object class="Variable" serializationversion="1">
-      <property name="name" class="String" id="0">rag_response</property>
+      <property name="name" class="String">rag_response</property>
       <property name="global" class="Boolean">true</property>
       <property name="initialAssignment" class="InitialVariableAssignment">
         <property name="type" class="TypeReference" serializationversion="0">
@@ -59,24 +59,24 @@
         </property>
         <property name="assignments" class="AttributeAssignments">
           <property name="embeddings_service_model" class="AttributeAssignment">
-            <property name="attributeValue" class="String" id="1"/>
+            <property name="attributeValue" class="String" id="0"/>
             <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" class="java.lang.Class" id="2">kapow.robot.plugin.common.domain.StringAttributeType</property>
+            <property name="lastKnownAttributeType" class="java.lang.Class" id="1">kapow.robot.plugin.common.domain.StringAttributeType</property>
           </property>
           <property name="max_search_results" class="AttributeAssignment">
-            <property name="attributeValue" idref="1"/>
+            <property name="attributeValue" idref="0"/>
             <property name="currentlyAssigned" class="Boolean">true</property>
             <property name="lastKnownAttributeType" class="java.lang.Class">kapow.robot.plugin.common.domain.IntegerAttributeType</property>
           </property>
           <property name="prompt_system" class="AttributeAssignment">
-            <property name="attributeValue" idref="1"/>
+            <property name="attributeValue" idref="0"/>
             <property name="currentlyAssigned" class="Boolean">true</property>
             <property name="lastKnownAttributeType" class="java.lang.Class">kapow.robot.plugin.common.domain.TextAttributeType</property>
           </property>
           <property name="search_service_api_version" class="AttributeAssignment">
-            <property name="attributeValue" idref="1"/>
+            <property name="attributeValue" idref="0"/>
             <property name="currentlyAssigned" class="Boolean">true</property>
-            <property name="lastKnownAttributeType" idref="2"/>
+            <property name="lastKnownAttributeType" idref="1"/>
           </property>
         </property>
       </property>
@@ -106,16 +106,16 @@
   </property>
   <property name="avoidExternalReExecution" class="Boolean">false</property>
   <property name="transitionGraph" class="Body">
-    <blockBeginStep class="BlockBeginStep" id="3"/>
+    <blockBeginStep class="BlockBeginStep" id="2"/>
     <steps class="ArrayList">
-      <object class="Group" id="4">
+      <object class="Group" id="3">
         <name class="String">Set Robot Env Variables</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="5"/>
+        <blockBeginStep class="BlockBeginStep" id="4"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="6">
+          <object class="Transition" serializationversion="3" id="5">
             <property name="name" class="String">Assign Robot Execution Id</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -125,7 +125,7 @@
                 <property name="name" class="String">rag_response.robot_execution_id</property>
               </property>
             </property>
-            <property name="elementFinders" class="ElementFinders" id="7"/>
+            <property name="elementFinders" class="ElementFinders" id="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
             <property name="comment">
               <null/>
@@ -133,7 +133,7 @@
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="8">
+          <object class="Transition" serializationversion="3" id="7">
             <property name="name" class="String">Assign Robot Name</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -143,7 +143,7 @@
                 <property name="name" class="String">rag_response.robot_name</property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
+            <property name="elementFinders" idref="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
             <property name="comment">
               <null/>
@@ -152,37 +152,37 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="9"/>
+        <blockEndStep class="BlockEndStep" id="8"/>
         <edges class="ArrayList">
           <object class="TransitionEdge">
+            <from idref="4"/>
+            <to idref="5"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
             <from idref="5"/>
-            <to idref="6"/>
+            <to idref="7"/>
             <name/>
             <comment/>
           </object>
           <object class="TransitionEdge">
-            <from idref="6"/>
+            <from idref="7"/>
             <to idref="8"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="8"/>
-            <to idref="9"/>
             <name/>
             <comment/>
           </object>
         </edges>
       </object>
-      <object class="Try" id="10"/>
-      <object class="Group" id="11">
+      <object class="Try" id="9"/>
+      <object class="Group" id="10">
         <name class="String">Vectorise Prompt</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="12"/>
+        <blockBeginStep class="BlockBeginStep" id="11"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="13">
+          <object class="Transition" serializationversion="3" id="12">
             <property name="name" class="String">Assign Embeddings Request</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -195,16 +195,20 @@
                 <property name="name" class="String">rag_data.Embeddings_Request</property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="elementFinders" idref="6"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
             <property name="comment">
               <null/>
             </property>
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="14">
-            <property name="name" class="String" id="15">Call REST Web Service</property>
+          <object class="Transition" serializationversion="3" id="13">
+            <property name="name" class="String" id="14">Call REST Web Service</property>
             <property name="stepAction" class="CallRESTWebService2" serializationversion="1">
               <property name="urlProvider" class="Expression" serializationversion="1">
                 <property name="text" class="String">rag_request.embeddings_service_endpoint</property>
@@ -217,7 +221,7 @@
                     </property>
                   </property>
                   <property name="contentType" class="kapow.robot.plugin.common.support.mimetype.MIMETypeValueStringExpression">
-                    <property name="value" class="String" id="16">application/json</property>
+                    <property name="value" class="String" id="15">application/json</property>
                   </property>
                 </property>
               </property>
@@ -245,11 +249,30 @@
                 </property>
                 <property name="ancestorProvider" class="BrowserConfigurationSpecificationAncestorProviderForStep"/>
                 <property name="changedProperties" class="java.util.HashSet">
-                  <element class="String" id="17">headerProvider</element>
+                  <element class="String" id="16">headerProvider</element>
                 </property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
+            <property name="elementFinders" idref="6"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" class="Boolean">true</property>
+            <property name="changedProperties" class="java.util.HashSet"/>
+          </object>
+          <object class="Transition" serializationversion="3" id="17">
+            <property name="name" class="String">Open Embeddings Response</property>
+            <property name="stepAction" class="OpenVariable">
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">rag_data.Embeddings_Response</property>
+              </property>
+            </property>
+            <property name="elementFinders" idref="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0">
               <property name="reportingViaAPI" class="Boolean">false</property>
               <property name="reportingViaLog" class="Boolean">false</property>
@@ -262,25 +285,6 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
           <object class="Transition" serializationversion="3" id="18">
-            <property name="name" class="String">Open Embeddings Response</property>
-            <property name="stepAction" class="OpenVariable">
-              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                <property name="name" class="String">rag_data.Embeddings_Response</property>
-              </property>
-            </property>
-            <property name="elementFinders" idref="7"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
-              <property name="reportingViaAPI" class="Boolean">false</property>
-              <property name="reportingViaLog" class="Boolean">false</property>
-              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
-            </property>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" class="Boolean">true</property>
-            <property name="changedProperties" class="java.util.HashSet"/>
-          </object>
-          <object class="Transition" serializationversion="3" id="19">
             <property name="name" class="String">Extract Embeddings Vector</property>
             <property name="stepAction" class="ExtractJSON2">
               <property name="dataConverters" class="DataConverters">
@@ -297,7 +301,11 @@
                 </property>
               </object>
             </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
             <property name="comment">
               <null/>
             </property>
@@ -305,8 +313,14 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="20"/>
+        <blockEndStep class="BlockEndStep" id="19"/>
         <edges class="ArrayList">
+          <object class="TransitionEdge">
+            <from idref="11"/>
+            <to idref="12"/>
+            <name/>
+            <comment/>
+          </object>
           <object class="TransitionEdge">
             <from idref="12"/>
             <to idref="13"/>
@@ -315,12 +329,12 @@
           </object>
           <object class="TransitionEdge">
             <from idref="13"/>
-            <to idref="14"/>
+            <to idref="17"/>
             <name/>
             <comment/>
           </object>
           <object class="TransitionEdge">
-            <from idref="14"/>
+            <from idref="17"/>
             <to idref="18"/>
             <name/>
             <comment/>
@@ -331,23 +345,16 @@
             <name/>
             <comment/>
           </object>
-          <object class="TransitionEdge">
-            <from idref="19"/>
-            <to idref="20"/>
-            <name/>
-            <comment/>
-          </object>
         </edges>
       </object>
-      <object class="Try" id="21"/>
-      <object class="Group" id="22">
+      <object class="Group" id="20">
         <name class="String">Vector Search</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="23"/>
+        <blockBeginStep class="BlockBeginStep" id="21"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="24">
+          <object class="Transition" serializationversion="3" id="22">
             <property name="name" class="String">Assign AI Search Request</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -374,16 +381,20 @@
                 <property name="name" class="String">rag_data.AI_Search_Request</property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="elementFinders" idref="6"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
             <property name="comment">
               <null/>
             </property>
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="25">
-            <property name="name" idref="15"/>
+          <object class="Transition" serializationversion="3" id="23">
+            <property name="name" idref="14"/>
             <property name="stepAction" class="CallRESTWebService2" serializationversion="1">
               <property name="urlProvider" class="Expression" serializationversion="1">
                 <property name="text" class="String">"https://" + rag_request.search_service_name + ".search.windows.net/indexes/" + rag_request.search_service_index_name + "/docs/search?api-version=" + rag_request.search_service_api_version </property>
@@ -396,7 +407,7 @@
                     </property>
                   </property>
                   <property name="contentType" class="kapow.robot.plugin.common.support.mimetype.MIMETypeValueStringExpression">
-                    <property name="value" idref="16"/>
+                    <property name="value" idref="15"/>
                   </property>
                 </property>
               </property>
@@ -417,11 +428,11 @@
                 </property>
                 <property name="ancestorProvider" class="BrowserConfigurationSpecificationAncestorProviderForStep"/>
                 <property name="changedProperties" class="java.util.HashSet">
-                  <element idref="17"/>
+                  <element idref="16"/>
                 </property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
+            <property name="elementFinders" idref="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0">
               <property name="reportingViaAPI" class="Boolean">false</property>
               <property name="reportingViaLog" class="Boolean">false</property>
@@ -433,14 +444,14 @@
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="26">
+          <object class="Transition" serializationversion="3" id="24">
             <property name="name" class="String">Open AI Search Response</property>
             <property name="stepAction" class="OpenVariable">
               <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">rag_data.AI_Search_Response</property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
+            <property name="elementFinders" idref="6"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0">
               <property name="reportingViaAPI" class="Boolean">false</property>
               <property name="reportingViaLog" class="Boolean">false</property>
@@ -452,28 +463,65 @@
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="27">
-            <property name="name" class="String">For Each Item</property>
-            <property name="stepAction" class="ForEachItem"/>
-            <property name="elementFinders" class="ElementFinders">
-              <object class="kapow.robot.robomaker.state.document.elementfinder.json.JSONElementFinder">
-                <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
-                  <property name="value" class="String">@top:.value</property>
-                </property>
-              </object>
-            </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
-              <property name="reportingViaAPI" class="Boolean">false</property>
-              <property name="reportingViaLog" class="Boolean">false</property>
-              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
-            </property>
-            <property name="comment">
-              <null/>
-            </property>
-            <property name="enabled" class="Boolean">true</property>
-            <property name="changedProperties" class="java.util.HashSet"/>
+        </steps>
+        <blockEndStep class="BlockEndStep" id="25"/>
+        <edges class="ArrayList">
+          <object class="TransitionEdge">
+            <from idref="21"/>
+            <to idref="22"/>
+            <name/>
+            <comment/>
           </object>
-          <object class="Transition" serializationversion="3" id="28">
+          <object class="TransitionEdge">
+            <from idref="22"/>
+            <to idref="23"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="23"/>
+            <to idref="24"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="24"/>
+            <to idref="25"/>
+            <name/>
+            <comment/>
+          </object>
+        </edges>
+      </object>
+      <object class="BranchPoint" id="26"/>
+      <object class="Transition" serializationversion="3" id="27">
+        <property name="name" class="String">For Each Item</property>
+        <property name="stepAction" class="ForEachItem"/>
+        <property name="elementFinders" class="ElementFinders">
+          <object class="kapow.robot.robomaker.state.document.elementfinder.json.JSONElementFinder">
+            <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+              <property name="value" class="String">@top:.value</property>
+            </property>
+          </object>
+        </property>
+        <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+          <property name="reportingViaAPI" class="Boolean">false</property>
+          <property name="reportingViaLog" class="Boolean">false</property>
+          <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+        </property>
+        <property name="comment">
+          <null/>
+        </property>
+        <property name="enabled" class="Boolean">true</property>
+        <property name="changedProperties" class="java.util.HashSet"/>
+      </object>
+      <object class="Group" id="28">
+        <name class="String">Combine Search Results</name>
+        <comment>
+          <null/>
+        </comment>
+        <blockBeginStep class="BlockBeginStep" id="29"/>
+        <steps class="ArrayList">
+          <object class="Transition" serializationversion="3" id="30">
             <property name="name" class="String">Extract String Data</property>
             <property name="stepAction" class="ExtractJSON2">
               <property name="dataConverters" class="DataConverters">
@@ -495,25 +543,71 @@
                 </property>
               </object>
             </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
             <property name="comment">
               <null/>
             </property>
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="29">
+          <object class="Transition" serializationversion="3" id="31">
+            <property name="name" class="String">Clean search results 1</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="Expression" serializationversion="1">
+                <property name="text" class="String">replaceText(rag_data.String_Data,"[\\\"","")
+</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">rag_data.String_Data</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment" class="String">Removes leading  [\"</property>
+            <property name="enabled" class="Boolean">false</property>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element class="String" id="32">name</element>
+            </property>
+          </object>
+          <object class="Transition" serializationversion="3" id="33">
+            <property name="name" class="String">Clean search results 2</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="Expression" serializationversion="1">
+                <property name="text" class="String">replaceText(rag_data.String_Data,"\\\"]","")
+</property>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">rag_data.String_Data</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment" class="String">Removes trailing  \"]</property>
+            <property name="enabled" class="Boolean">false</property>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element class="String">name</element>
+            </property>
+          </object>
+          <object class="Transition" serializationversion="3" id="34">
             <property name="name" class="String">Assign AI Search Merged Results</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
-                <property name="text" class="String">rag_data.AI_Search_Merged_Results + "###ARTICLE_START###" + rag_data.String_Data + "###ARTICLE_END### "</property>
+                <property name="text" class="String">rag_data.AI_Search_Merged_Results + "###ARTICLE_START###" + rag_data.String_Data + "###ARTICLE_STOP### "</property>
               </property>
               <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
                 <property name="name" class="String">rag_data.AI_Search_Merged_Results</property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
             <property name="comment">
               <null/>
             </property>
@@ -521,122 +615,118 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="30"/>
+        <blockEndStep class="BlockEndStep" id="35"/>
         <edges class="ArrayList">
-          <object class="TransitionEdge">
-            <from idref="23"/>
-            <to idref="24"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="24"/>
-            <to idref="25"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="25"/>
-            <to idref="26"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="26"/>
-            <to idref="27"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="27"/>
-            <to idref="28"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="28"/>
-            <to idref="29"/>
-            <name/>
-            <comment/>
-          </object>
           <object class="TransitionEdge">
             <from idref="29"/>
             <to idref="30"/>
             <name/>
             <comment/>
           </object>
+          <object class="TransitionEdge">
+            <from idref="30"/>
+            <to idref="31"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="31"/>
+            <to idref="33"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="33"/>
+            <to idref="34"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="34"/>
+            <to idref="35"/>
+            <name/>
+            <comment/>
+          </object>
         </edges>
       </object>
-      <object class="Try" id="31"/>
-      <object class="Group" id="32">
-        <name class="String">Combine Search Results and Prompt</name>
+      <object class="End" id="36"/>
+      <object class="Group" id="37">
+        <name class="String">Assign System Prompt</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="33"/>
+        <blockBeginStep class="BlockBeginStep" id="38"/>
         <steps class="ArrayList">
-          <object class="Group" id="34">
-            <name class="String">Assign System Prompt</name>
-            <comment>
-              <null/>
-            </comment>
-            <blockBeginStep class="BlockBeginStep" id="35"/>
-            <steps class="ArrayList">
-              <object class="Transition" serializationversion="3" id="36">
-                <property name="name" class="String">Remove Speech Marks</property>
-                <property name="stepAction" class="AssignVariable" serializationversion="4">
-                  <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
-                    <property name="dataConverters" class="DataConverters">
-                      <element class="GetVariable" serializationversion="2">
-                        <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                          <property name="name" class="String">rag_request.prompt_system</property>
-                        </property>
-                      </element>
-                      <element class="ReplaceText">
-                        <property name="textToReplace" class="String">"</property>
-                        <property name="replacementText" class="String">\"</property>
-                      </element>
+          <object class="Transition" serializationversion="3" id="39">
+            <property name="name" class="String">Remove Speech Marks</property>
+            <property name="stepAction" class="AssignVariable" serializationversion="4">
+              <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
+                <property name="dataConverters" class="DataConverters">
+                  <element class="GetVariable" serializationversion="2">
+                    <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                      <property name="name" class="String">rag_request.prompt_system</property>
                     </property>
-                  </property>
-                  <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
-                    <property name="name" class="String">rag_data.Completions_System_Prompt</property>
-                  </property>
+                  </element>
+                  <element class="ReplaceText">
+                    <property name="textToReplace" class="String">"</property>
+                    <property name="replacementText" class="String">\"</property>
+                  </element>
+                  <element class="ReplaceText">
+                    <property name="textToReplace" class="String">'</property>
+                    <property name="replacementText" class="String">\\'</property>
+                  </element>
                 </property>
-                <property name="elementFinders" class="ElementFinders"/>
-                <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-                <property name="comment">
-                  <null/>
-                </property>
-                <property name="enabled" class="Boolean">true</property>
-                <property name="changedProperties" class="java.util.HashSet">
-                  <element class="String">name</element>
-                </property>
-              </object>
-            </steps>
-            <blockEndStep class="BlockEndStep" id="37"/>
-            <edges class="ArrayList">
-              <object class="TransitionEdge">
-                <from idref="35"/>
-                <to idref="36"/>
-                <name/>
-                <comment/>
-              </object>
-              <object class="TransitionEdge">
-                <from idref="36"/>
-                <to idref="37"/>
-                <name/>
-                <comment/>
-              </object>
-            </edges>
+              </property>
+              <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                <property name="name" class="String">rag_data.Completions_System_Prompt</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" class="Boolean">true</property>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element class="String">name</element>
+            </property>
           </object>
-          <object class="Group" id="38">
+        </steps>
+        <blockEndStep class="BlockEndStep" id="40"/>
+        <edges class="ArrayList">
+          <object class="TransitionEdge">
+            <from idref="38"/>
+            <to idref="39"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="39"/>
+            <to idref="40"/>
+            <name/>
+            <comment/>
+          </object>
+        </edges>
+      </object>
+      <object class="Group" id="41">
+        <name class="String">Combine Search Results into Prompt</name>
+        <comment>
+          <null/>
+        </comment>
+        <blockBeginStep class="BlockBeginStep" id="42"/>
+        <steps class="ArrayList">
+          <object class="Group" id="43">
             <name class="String">Assign Search Results</name>
             <comment>
               <null/>
             </comment>
-            <blockBeginStep class="BlockBeginStep" id="39"/>
+            <blockBeginStep class="BlockBeginStep" id="44"/>
             <steps class="ArrayList">
-              <object class="Transition" serializationversion="3" id="40">
+              <object class="Transition" serializationversion="3" id="45">
                 <property name="name" class="String">Remove Speech Marks</property>
                 <property name="stepAction" class="AssignVariable" serializationversion="4">
                   <property name="stringExpr" class="kapow.robot.plugin.common.support.expression.multipletype.StringProcessorsExpression" serializationversion="0">
@@ -657,7 +747,11 @@
                   </property>
                 </property>
                 <property name="elementFinders" class="ElementFinders"/>
-                <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+                <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+                  <property name="reportingViaAPI" class="Boolean">false</property>
+                  <property name="reportingViaLog" class="Boolean">false</property>
+                  <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+                </property>
                 <property name="comment">
                   <null/>
                 </property>
@@ -667,23 +761,23 @@
                 </property>
               </object>
             </steps>
-            <blockEndStep class="BlockEndStep" id="41"/>
+            <blockEndStep class="BlockEndStep" id="46"/>
             <edges class="ArrayList">
               <object class="TransitionEdge">
-                <from idref="39"/>
-                <to idref="40"/>
+                <from idref="44"/>
+                <to idref="45"/>
                 <name/>
                 <comment/>
               </object>
               <object class="TransitionEdge">
-                <from idref="40"/>
-                <to idref="41"/>
+                <from idref="45"/>
+                <to idref="46"/>
                 <name/>
                 <comment/>
               </object>
             </edges>
           </object>
-          <object class="Transition" serializationversion="3" id="42">
+          <object class="Transition" serializationversion="3" id="47">
             <property name="name" class="String">Assign Completions Request</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -716,7 +810,7 @@
                 <property name="name" class="String">rag_data.Completions_Request</property>
               </property>
             </property>
-            <property name="elementFinders" idref="7"/>
+            <property name="elementFinders" class="ElementFinders"/>
             <property name="errorHandler" class="ErrorHandler" serializationversion="0">
               <property name="reportingViaAPI" class="Boolean">false</property>
               <property name="reportingViaLog" class="Boolean">false</property>
@@ -729,44 +823,37 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="43"/>
+        <blockEndStep class="BlockEndStep" id="48"/>
         <edges class="ArrayList">
-          <object class="TransitionEdge">
-            <from idref="33"/>
-            <to idref="34"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="34"/>
-            <to idref="38"/>
-            <name/>
-            <comment/>
-          </object>
-          <object class="TransitionEdge">
-            <from idref="38"/>
-            <to idref="42"/>
-            <name/>
-            <comment/>
-          </object>
           <object class="TransitionEdge">
             <from idref="42"/>
             <to idref="43"/>
             <name/>
             <comment/>
           </object>
+          <object class="TransitionEdge">
+            <from idref="43"/>
+            <to idref="47"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="47"/>
+            <to idref="48"/>
+            <name/>
+            <comment/>
+          </object>
         </edges>
       </object>
-      <object class="Try" id="44"/>
-      <object class="Group" id="45">
+      <object class="Group" id="49">
         <name class="String">Call Open AI</name>
         <comment>
           <null/>
         </comment>
-        <blockBeginStep class="BlockBeginStep" id="46"/>
+        <blockBeginStep class="BlockBeginStep" id="50"/>
         <steps class="ArrayList">
-          <object class="Transition" serializationversion="3" id="47">
-            <property name="name" idref="15"/>
+          <object class="Transition" serializationversion="3" id="51">
+            <property name="name" idref="14"/>
             <property name="stepAction" class="CallRESTWebService2" serializationversion="1">
               <property name="urlProvider" class="kapow.robot.plugin.common.support.expression.multipletype.VariableExpression" serializationversion="2">
                 <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
@@ -818,7 +905,7 @@
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="48">
+          <object class="Transition" serializationversion="3" id="52">
             <property name="name" class="String">Open Completions Response</property>
             <property name="stepAction" class="OpenVariable">
               <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
@@ -826,14 +913,18 @@
               </property>
             </property>
             <property name="elementFinders" class="ElementFinders"/>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
             <property name="comment">
               <null/>
             </property>
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="49">
+          <object class="Transition" serializationversion="3" id="53">
             <property name="name" class="String">Extract Agent Reply</property>
             <property name="stepAction" class="ExtractJSON2">
               <property name="dataConverters" class="DataConverters">
@@ -850,7 +941,11 @@
                 </property>
               </object>
             </property>
-            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0">
+              <property name="reportingViaAPI" class="Boolean">false</property>
+              <property name="reportingViaLog" class="Boolean">false</property>
+              <property name="controlFlow" class="kapow.robot.robomaker.robot.ControlFlow$NextAlternative"/>
+            </property>
             <property name="comment">
               <null/>
             </property>
@@ -858,53 +953,100 @@
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="50"/>
+        <blockEndStep class="BlockEndStep" id="54"/>
         <edges class="ArrayList">
           <object class="TransitionEdge">
-            <from idref="46"/>
-            <to idref="47"/>
+            <from idref="50"/>
+            <to idref="51"/>
             <name/>
             <comment/>
           </object>
           <object class="TransitionEdge">
-            <from idref="47"/>
-            <to idref="48"/>
+            <from idref="51"/>
+            <to idref="52"/>
             <name/>
             <comment/>
           </object>
           <object class="TransitionEdge">
-            <from idref="48"/>
-            <to idref="49"/>
+            <from idref="52"/>
+            <to idref="53"/>
             <name/>
             <comment/>
           </object>
           <object class="TransitionEdge">
-            <from idref="49"/>
-            <to idref="50"/>
+            <from idref="53"/>
+            <to idref="54"/>
             <name/>
             <comment/>
           </object>
         </edges>
       </object>
-      <object class="Transition" serializationversion="3" id="51">
-        <property name="name" class="String">Return Value</property>
-        <property name="stepAction" class="ReturnVariable" serializationversion="1">
-          <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
-            <property name="name" idref="0"/>
-          </property>
-        </property>
-        <property name="elementFinders" idref="7"/>
-        <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
-        <property name="comment">
+      <object class="Group" id="55">
+        <name class="String">Return Response</name>
+        <comment>
           <null/>
-        </property>
-        <property name="enabled" class="Boolean">true</property>
-        <property name="changedProperties" class="java.util.HashSet">
-          <element class="String">name</element>
-        </property>
+        </comment>
+        <blockBeginStep class="BlockBeginStep" id="56"/>
+        <steps class="ArrayList">
+          <object class="Transition" serializationversion="3" id="57">
+            <property name="name" class="String">Return Value</property>
+            <property name="stepAction" class="ReturnVariable" serializationversion="1">
+              <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
+                <property name="name" class="String">rag_response</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" class="Boolean">true</property>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element class="String">name</element>
+            </property>
+          </object>
+          <object class="Transition" serializationversion="3" id="58">
+            <property name="name" class="String">Return Debug</property>
+            <property name="stepAction" class="ReturnVariable" serializationversion="1">
+              <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
+                <property name="name" class="String">rag_data</property>
+              </property>
+            </property>
+            <property name="elementFinders" class="ElementFinders"/>
+            <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+            <property name="comment">
+              <null/>
+            </property>
+            <property name="enabled" class="Boolean">false</property>
+            <property name="changedProperties" class="java.util.HashSet">
+              <element idref="32"/>
+            </property>
+          </object>
+        </steps>
+        <blockEndStep class="BlockEndStep" id="59"/>
+        <edges class="ArrayList">
+          <object class="TransitionEdge">
+            <from idref="56"/>
+            <to idref="57"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="57"/>
+            <to idref="58"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="58"/>
+            <to idref="59"/>
+            <name/>
+            <comment/>
+          </object>
+        </edges>
       </object>
-      <object class="End" id="52"/>
-      <object class="Transition" serializationversion="3" id="53">
+      <object class="End" id="60"/>
+      <object class="Transition" serializationversion="3" id="61">
         <property name="name" class="String">Assign Robot Errors</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
@@ -914,7 +1056,7 @@
             <property name="name" class="String">rag_response.robot_errors</property>
           </property>
         </property>
-        <property name="elementFinders" idref="7"/>
+        <property name="elementFinders" idref="6"/>
         <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
         <property name="comment">
           <null/>
@@ -926,98 +1068,92 @@
     <blockEndStep class="BlockEndStep"/>
     <edges class="ArrayList">
       <object class="TransitionEdge">
-        <from idref="3"/>
-        <to idref="4"/>
+        <from idref="2"/>
+        <to idref="3"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="4"/>
+        <from idref="3"/>
+        <to idref="9"/>
+        <name/>
+        <comment/>
+      </object>
+      <object class="TransitionEdge">
+        <from idref="9"/>
         <to idref="10"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="10"/>
-        <to idref="11"/>
+        <from idref="9"/>
+        <to idref="61"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
         <from idref="10"/>
-        <to idref="53"/>
+        <to idref="20"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="11"/>
-        <to idref="21"/>
+        <from idref="20"/>
+        <to idref="26"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="21"/>
-        <to idref="22"/>
+        <from idref="26"/>
+        <to idref="27"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="21"/>
-        <to idref="53"/>
+        <from idref="26"/>
+        <to idref="37"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="22"/>
-        <to idref="31"/>
+        <from idref="27"/>
+        <to idref="28"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="31"/>
-        <to idref="32"/>
+        <from idref="28"/>
+        <to idref="36"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="31"/>
-        <to idref="53"/>
+        <from idref="37"/>
+        <to idref="41"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="32"/>
-        <to idref="44"/>
+        <from idref="41"/>
+        <to idref="49"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="44"/>
-        <to idref="45"/>
+        <from idref="49"/>
+        <to idref="55"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="44"/>
-        <to idref="53"/>
+        <from idref="55"/>
+        <to idref="60"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="45"/>
-        <to idref="51"/>
-        <name/>
-        <comment/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="51"/>
-        <to idref="52"/>
-        <name/>
-        <comment/>
-      </object>
-      <object class="TransitionEdge">
-        <from idref="53"/>
-        <to idref="51"/>
+        <from idref="61"/>
+        <to idref="55"/>
         <name/>
         <comment/>
       </object>
