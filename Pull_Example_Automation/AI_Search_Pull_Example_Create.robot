@@ -807,15 +807,7 @@ To create the data source, Connection String must be in one of the following for
       \"filterable\": true,
       \"retrievable\": true,
       \"sortable\": true,
-      \"facetable\": false,
-      \"key\": false,
-      \"indexAnalyzer\": null,
-      \"searchAnalyzer\": null,
-      \"analyzer\": \"standard.lucene\",
-      \"normalizer\": null,
-      \"dimensions\": null,
-      \"vectorSearchProfile\": null,
-      \"synonymMaps\": []
+      \"facetable\": true
     },
     {
       \"name\": \"page_content_vector\",
@@ -1363,10 +1355,6 @@ To create the data source, Connection String must be in one of the following for
         {
         	\"sourceFieldName\": \"/document/language\",
         	\"targetFieldName\": \"language\"
-        },
-        {
-          \"sourceFieldName\" : \"/document/language\", 
-          \"targetFieldName\" : \"language\"
         }
     ]
 }"</property>
