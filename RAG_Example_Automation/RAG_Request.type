@@ -18,6 +18,7 @@ https://[service name].search.windows.net/indexes?api-version=2020-06-30</proper
       <property name="name" class="String">search_service_api_key</property>
       <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
       <property name="recordFieldType" class="String" id="1">Password</property>
+      <property name="storable" class="Boolean">false</property>
       <property name="required" class="Boolean">true</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
@@ -38,7 +39,8 @@ for the built in vector support.
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">search_service_query_key</property>
       <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
-      <property name="recordFieldType" class="String">Password</property>
+      <property name="recordFieldType" idref="1"/>
+      <property name="storable" class="Boolean">false</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">embeddings_service_url</property>
@@ -54,6 +56,7 @@ for the built in vector support.
       <property name="name" class="String">embeddings_service_key</property>
       <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
       <property name="recordFieldType" idref="1"/>
+      <property name="storable" class="Boolean">false</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">embeddings_service_model</property>
@@ -69,7 +72,8 @@ for the built in vector support.
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">completions_service_api_key</property>
       <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
-      <property name="recordFieldType" class="String">Password</property>
+      <property name="recordFieldType" idref="1"/>
+      <property name="storable" class="Boolean">false</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">prompt</property>

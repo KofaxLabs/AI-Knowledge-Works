@@ -1301,7 +1301,84 @@ This payload is configured to ignore errors and continue indexing. </property>
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="46">
+          <object class="Group" id="46">
+            <name class="String">Enable Caching</name>
+            <comment>
+              <null/>
+            </comment>
+            <blockBeginStep class="BlockBeginStep" id="47"/>
+            <steps class="ArrayList">
+              <object class="Transition" serializationversion="3" id="48">
+                <property name="name" class="String">Open Indexer Create Request</property>
+                <property name="stepAction" class="OpenVariable">
+                  <property name="variable" class="kapow.robot.plugin.common.support.AttributeName2">
+                    <property name="name" class="String">create_index_response.indexer_create_request</property>
+                  </property>
+                </property>
+                <property name="elementFinders" class="ElementFinders"/>
+                <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+                <property name="comment">
+                  <null/>
+                </property>
+                <property name="enabled" class="Boolean">true</property>
+                <property name="changedProperties" class="java.util.HashSet"/>
+              </object>
+              <object class="Transition" serializationversion="3" id="49">
+                <property name="name" class="String">Insert JSON</property>
+                <property name="stepAction" class="InsertJSON">
+                  <property name="insertJSONMode" class="kapow.robot.plugin.common.stepaction.json.InsertPropertyMode">
+                    <property name="name" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                      <property name="value" class="String">cache</property>
+                    </property>
+                    <property name="value" class="Expression" serializationversion="1">
+                      <property name="text" class="String">"{
+            \"storageConnectionString\" : \"" + create_index_request.cache_connection_string + "\",
+            \"enableReprocessing\": true
+ }"</property>
+                    </property>
+                  </property>
+                  <property name="insertWhereMode" class="InsertJSON$InsertWhere">
+                    <property name="enum-name" class="String">AFTER</property>
+                  </property>
+                </property>
+                <property name="elementFinders" class="ElementFinders">
+                  <object class="kapow.robot.robomaker.state.document.elementfinder.json.JSONElementFinder">
+                    <property name="nodePath" class="kapow.robot.plugin.common.support.expression.stringexpr.ValueStringExpression">
+                      <property name="value" class="String">@top:.skillsetName</property>
+                    </property>
+                  </object>
+                </property>
+                <property name="errorHandler" class="ErrorHandler" serializationversion="0"/>
+                <property name="comment">
+                  <null/>
+                </property>
+                <property name="enabled" class="Boolean">true</property>
+                <property name="changedProperties" class="java.util.HashSet"/>
+              </object>
+            </steps>
+            <blockEndStep class="BlockEndStep" id="50"/>
+            <edges class="ArrayList">
+              <object class="TransitionEdge">
+                <from idref="47"/>
+                <to idref="48"/>
+                <name/>
+                <comment/>
+              </object>
+              <object class="TransitionEdge">
+                <from idref="48"/>
+                <to idref="49"/>
+                <name/>
+                <comment/>
+              </object>
+              <object class="TransitionEdge">
+                <from idref="49"/>
+                <to idref="50"/>
+                <name/>
+                <comment/>
+              </object>
+            </edges>
+          </object>
+          <object class="Transition" serializationversion="3" id="51">
             <property name="name" idref="23"/>
             <property name="stepAction" class="CallRESTWebService2" serializationversion="1">
               <property name="urlProvider" class="Expression" serializationversion="1">
@@ -1359,7 +1436,7 @@ This payload is configured to ignore errors and continue indexing. </property>
             <property name="enabled" class="Boolean">true</property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
-          <object class="Transition" serializationversion="3" id="47">
+          <object class="Transition" serializationversion="3" id="52">
             <property name="name" class="String">Assign Indexer Status</property>
             <property name="stepAction" class="AssignVariable" serializationversion="4">
               <property name="stringExpr" class="Expression" serializationversion="1">
@@ -1382,7 +1459,7 @@ This payload is configured to ignore errors and continue indexing. </property>
             <property name="changedProperties" class="java.util.HashSet"/>
           </object>
         </steps>
-        <blockEndStep class="BlockEndStep" id="48"/>
+        <blockEndStep class="BlockEndStep" id="53"/>
         <edges class="ArrayList">
           <object class="TransitionEdge">
             <from idref="44"/>
@@ -1398,19 +1475,25 @@ This payload is configured to ignore errors and continue indexing. </property>
           </object>
           <object class="TransitionEdge">
             <from idref="46"/>
-            <to idref="47"/>
+            <to idref="51"/>
             <name/>
             <comment/>
           </object>
           <object class="TransitionEdge">
-            <from idref="47"/>
-            <to idref="48"/>
+            <from idref="51"/>
+            <to idref="52"/>
+            <name/>
+            <comment/>
+          </object>
+          <object class="TransitionEdge">
+            <from idref="52"/>
+            <to idref="53"/>
             <name/>
             <comment/>
           </object>
         </edges>
       </object>
-      <object class="Transition" serializationversion="3" id="49">
+      <object class="Transition" serializationversion="3" id="54">
         <property name="name" class="String">Return Value</property>
         <property name="stepAction" class="ReturnVariable" serializationversion="1">
           <property name="variableName" class="kapow.robot.plugin.common.support.VariableName">
@@ -1425,8 +1508,8 @@ This payload is configured to ignore errors and continue indexing. </property>
         <property name="enabled" class="Boolean">true</property>
         <property name="changedProperties" class="java.util.HashSet"/>
       </object>
-      <object class="End" id="50"/>
-      <object class="Transition" serializationversion="3" id="51">
+      <object class="End" id="55"/>
+      <object class="Transition" serializationversion="3" id="56">
         <property name="name" class="String">Assign Robot Errors</property>
         <property name="stepAction" class="AssignVariable" serializationversion="4">
           <property name="stringExpr" class="Expression" serializationversion="1">
@@ -1473,7 +1556,7 @@ This payload is configured to ignore errors and continue indexing. </property>
       </object>
       <object class="TransitionEdge">
         <from idref="15"/>
-        <to idref="51"/>
+        <to idref="56"/>
         <name/>
         <comment/>
       </object>
@@ -1503,19 +1586,19 @@ This payload is configured to ignore errors and continue indexing. </property>
       </object>
       <object class="TransitionEdge">
         <from idref="43"/>
-        <to idref="49"/>
+        <to idref="54"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="49"/>
-        <to idref="50"/>
+        <from idref="54"/>
+        <to idref="55"/>
         <name/>
         <comment/>
       </object>
       <object class="TransitionEdge">
-        <from idref="51"/>
-        <to idref="49"/>
+        <from idref="56"/>
+        <to idref="54"/>
         <name/>
         <comment/>
       </object>

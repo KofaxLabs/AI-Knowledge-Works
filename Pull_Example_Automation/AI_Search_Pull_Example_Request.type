@@ -16,8 +16,9 @@
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">data_source_connection_string</property>
-      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" class="String" id="1">Text</property>
+      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType" id="1"/>
+      <property name="recordFieldType" class="String" id="2">Text</property>
+      <property name="storable" class="Boolean">false</property>
       <property name="required" class="Boolean">true</property>
       <property name="comment" class="String">DefaultEndpointsProtocol=https;AccountName=&lt;your storage account&gt;;AccountKey=&lt;your account key&gt;;
 
@@ -28,7 +29,7 @@ BlobEndpoint=https://&lt;your account&gt;.blob.core.windows.net/;SharedAccessSig
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">data_source_container_name</property>
       <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" idref="1"/>
+      <property name="recordFieldType" idref="2"/>
       <property name="required" class="Boolean">true</property>
       <property name="comment" class="String">In our demo, a new container is created per user using their TotalAgility login name. </property>
     </object>
@@ -40,20 +41,21 @@ BlobEndpoint=https://&lt;your account&gt;.blob.core.windows.net/;SharedAccessSig
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">search_service_name</property>
       <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" idref="1"/>
+      <property name="recordFieldType" idref="2"/>
       <property name="comment" class="String">For the API calls:
 https://[service name].search.windows.net/indexes?api-version=2020-06-30</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">search_service_api_key</property>
       <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
-      <property name="recordFieldType" class="String" id="2">Password</property>
+      <property name="recordFieldType" class="String" id="3">Password</property>
+      <property name="storable" class="Boolean">false</property>
       <property name="required" class="Boolean">true</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">search_service_api_version</property>
       <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" class="String" id="3">Text</property>
+      <property name="recordFieldType" class="String" id="4">Text</property>
       <property name="defaultValue" class="String">2023-10-01-preview</property>
       <property name="comment" class="String">Original: 2020-06-30
 Switched to: 2023-10-01-preview
@@ -63,28 +65,44 @@ for the built in vector support.
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">embeddings_service_url</property>
       <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" idref="1"/>
+      <property name="recordFieldType" idref="2"/>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">embeddings_service_key</property>
-      <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" idref="1"/>
+      <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
+      <property name="recordFieldType" idref="3"/>
+      <property name="storable" class="Boolean">false</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">embeddings_service_model</property>
       <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" idref="3"/>
+      <property name="recordFieldType" idref="4"/>
       <property name="defaultValue" class="String">text-embedding-ada-002</property>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">azure_ai_multi_service_resource_name</property>
       <property name="type" class="kapow.robot.plugin.common.domain.StringAttributeType"/>
-      <property name="recordFieldType" idref="1"/>
+      <property name="recordFieldType" idref="2"/>
     </object>
     <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
       <property name="name" class="String">azure_ai_multi_service_key</property>
       <property name="type" class="kapow.robot.plugin.common.domain.PasswordAttributeType"/>
+      <property name="recordFieldType" idref="3"/>
+      <property name="storable" class="Boolean">false</property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">cache_connection_string</property>
+      <property name="type" idref="1"/>
       <property name="recordFieldType" idref="2"/>
+      <property name="storable" class="Boolean">false</property>
+      <property name="comment" class="String">Optional Azure Storage Container for Incremental enrichment and caching in Azure AI Search </property>
+    </object>
+    <object class="kapow.robot.common.domain.Attribute" serializationversion="1">
+      <property name="name" class="String">knowledge_store_connection_string</property>
+      <property name="type" idref="1"/>
+      <property name="recordFieldType" idref="2"/>
+      <property name="storable" class="Boolean">false</property>
+      <property name="comment" class="String">Optional Azure Storage container for a knowledge store, a secondary storage for AI-enriched content created by a skillset in Azure AI Search</property>
     </object>
   </property>
 </object>

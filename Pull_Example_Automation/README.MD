@@ -9,8 +9,6 @@ Contains 3 robot templates, each with the same request and response type. The re
  - **AI_Search_Pull_Example_Status.robot**: Get the status of the specified index ("not found", "success" etc.).
 
  TODO
-    Remove Classification Vector
-    Copy language to projection index
-    Simplify to avoid trying to get the text of a full document in one go 
+ - Simplify to avoid trying to get the text of a full document in one go 
 
     
